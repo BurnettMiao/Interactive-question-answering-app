@@ -15,11 +15,35 @@ html {
 
 body {
   font-family: '微軟正黑體', sans-serif;
-  background-color: var(--background-color);
+  /* background-color: var(--background-color); */
+  background-image: linear-gradient(
+    to right top,
+    #051937,
+    #004d7a,
+    #008793,
+    #00bf72,
+    #a8eb12
+  );
+  font-size: 18px;
 }
 
 img {
   object-fit: cover;
+}
+
+input {
+  outline: none;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+}
+
+input::placeholder {
+  font-size: 18px;
+}
+
+input[type='text'] {
+  font-size: 18px;
 }
 
 .container {
@@ -41,4 +65,10 @@ img {
 .login-section {
   display: grid;
   place-content: center;
+}
+
+.login-area {
+  padding: 1rem;
+  border-radius: 12px;
+  border: 1px solid #fff;
 }
