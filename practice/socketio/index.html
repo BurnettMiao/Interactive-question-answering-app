@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>互動答題遊戲</title>
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 20px;
+        background-color: #f4f4f9;
+      }
+      h1,
+      h2,
+      h3 {
+        margin: 10px 0;
+      }
+      button {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 16px;
+      }
+      #leaderboard {
+        margin-top: 20px;
+        text-align: left;
+      }
+      #leaderboard ul {
+        list-style: none;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>互動答題遊戲</h1>
+    <div id="question-container">
+      <h2 id="question-text"></h2>
+      <div id="options"></div>
+    </div>
+    <div id="leaderboard">
+      <h3>排行榜</h3>
+      <ul id="leaderboard-list"></ul>
+    </div>
+
+    <script>
+      const socket = io('http://127.0.0.1:5000'); // 連接到伺服器
+      let username = prompt('請輸入你的名字：');
+      let currentQuestion = null;
+
+      // 通知伺服器加入遊戲
+      socket.emit('join', { username });
+
+      // 接收新的排行榜數據
+      socket.on('update_leaderboard', (data) => {
+        const leaderboardList = document.getElementById('leaderboard-list');
+        leaderboardList.innerHTML = ''; // 清空現有排行榜
+        data.forEach(([user, info]) => {
+          const li = document.createElement('li');
+          li.textContent = `${user}: ${info.score} 分`;
+          leaderboardList.appendChild(li);
+        });
+      });
+
+      // 顯示題目
+      function displayQuestion(question) {
+        currentQuestion = question;
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options');
+
+        questionText.textContent = question.question;
+        optionsContainer.innerHTML = ''; // 清空選項
+
+        question.options.forEach((option) => {
+          const button = document.createElement('button');
+          button.textContent = option;
+          button.addEventListener('click', () => submitAnswer(option));
+          optionsContainer.appendChild(button);
+        });
+      }
+
+      // 提交答案
+      function submitAnswer(answer) {
+        if (currentQuestion) {
+          socket.emit('answer', {
+            username,
+            question_id: currentQuestion.id,
+            answer,
+          });
+        }
+      }
+
+      // 模擬題目（伺服器應該通過 WebSocket 傳遞這些數據）
+      const mockQuestion = {
+        id: 1,
+        question: '1 + 1 等於多少？',
+        options: ['1', '2', '3', '4'],
+      };
+      displayQuestion(mockQuestion); // 測試用，實際應從伺服器接收
+    </script>
+  </body>
+</html>
