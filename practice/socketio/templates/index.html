@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>互動答題遊戲</title>
+  </head>
+  <body>
+    <!-- <h1>Quiz Game</h1> -->
+    <div id="login">
+      <h2>登入</h2>
+      <input type="text" id="username" placeholder="請輸入用戶名" />
+      <button class="login-btn">登入</button>
+    </div>
+
+    <div id="game" style="display: none">
+      <h2>遊戲中</h2>
+      <div class="question-container">
+        <p id="question"></p>
+        <div id="options"></div>
+      </div>
+
+      <button class="join-game-btn">加入遊戲</button>
+      <h3>排行榜</h3>
+      <ul id="leaderboard"></ul>
+    </div>
+
+    <button class="test-btn">測試按鈕</button>
+
+    <script src="../static/script.js"></script>
+  </body>
+</html>
