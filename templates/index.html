@@ -4,30 +4,39 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="../static/style.css" />
     <title>互動答題遊戲</title>
   </head>
   <body>
-    <!-- <h1>Quiz Game</h1> -->
-    <div id="login">
-      <h2>登入</h2>
-      <input type="text" id="username" placeholder="請輸入用戶名" />
-      <button class="login-btn">登入</button>
-    </div>
+    <div class="container login">
+      <div class="login-content">
+        <h1 class="login-title">TTTTTTest Title</h1>
 
-    <div id="game" style="display: none">
-      <h2>遊戲中</h2>
-      <div class="question-container">
-        <p id="question"></p>
-        <div id="options"></div>
+        <p class="login-description">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas,
+          earum. 👋
+        </p>
+
+        <div class="login-label">Log In</div>
+        <input
+          type="text"
+          required
+          class="login-input"
+          placeholder="請輸入您的名稱..."
+        />
+        <button class="login-btn">登入</button>
+        <button class="test-btn">測試按鈕</button>
+        <div class="socials">
+          <span class="social"><i class="ri-google-fill"></i></span>
+          <span class="social"><i class="ri-facebook-fill"></i></span>
+          <span class="social"><i class="ri-twitter-x-fill"></i></span>
+        </div>
       </div>
-
-      <button class="join-game-btn">加入遊戲</button>
-      <h3>排行榜</h3>
-      <ul id="leaderboard"></ul>
     </div>
-
-    <button class="test-btn">測試按鈕</button>
 
     <script src="../static/script.js"></script>
   </body>
