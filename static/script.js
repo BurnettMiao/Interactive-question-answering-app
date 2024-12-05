@@ -1,11 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
   const socket = io('http://127.0.0.1:5000');
-  let currentQuestion = null;
-  let username = null;
   const loginBtn = document.querySelector('.login-btn');
 
   loginBtn.addEventListener('click', () => {
     console.log('Login Button clicked!!!');
+    let userInput = document.querySelector('.login-input');
+    let userName = userInput.value.trim();
+
+    if (userName === '') {
+      warnUser(userInput);
+      return;
+    }
+
+    socket.emit('welcome', userName);
+
+    console.log(userName);
+    userInput.value = '';
+  });
+
+  function warnUser(userInput) {
+    userInput.value = '名稱不可以為空白...';
+    userInput.style.color = 'red';
+
+    setTimeout(() => {
+      userInput.value = '';
+      userInput.style.color = '#6fcf97';
+    }, 2000);
+  }
+
+  socket.on('redirectToGame', (data) => {
+    window.location.href = data.url;
   });
 
   // ----- test -----
@@ -16,7 +40,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  socket.emit('welcome', '新用戶加入~');
   socket.on('responseWelcome', (data) => {
     console.log(data);
   });

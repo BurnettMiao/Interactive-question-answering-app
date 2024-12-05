@@ -2,8 +2,9 @@
 
 :root {
   --max-width: 1200px;
-  --primary-color: #4741ed;
+  --primary-color: #6fcf97;
   --white: #fff;
+  --bg-gray: #efefec;
 }
 
 * {
@@ -44,6 +45,7 @@ button {
   color: var(--primary-color);
   width: 100%;
   max-width: 350px;
+  cursor: pointer;
 }
 
 .container {
@@ -56,6 +58,7 @@ button {
   isolation: isolate;
   width: 100%;
   height: 100vh;
+  max-height: 1080px;
   padding: 2rem;
   overflow: hidden;
 }
@@ -70,6 +73,7 @@ button {
   background-color: var(--primary-color);
   border-bottom-left-radius: 100% 45%;
   z-index: -1;
+  clip-path: unset;
 }
 
 .login::after {
@@ -80,15 +84,16 @@ button {
   width: calc(90%);
   aspect-ratio: 1/1;
   transform: translate(-60%, 60%);
-  background-color: #edecea;
+  background-color: var(--bg-gray);
   border-radius: 50%;
   z-index: -1;
 }
 
 .login-content {
-  margin-top: 25%;
+  /* margin-top: 25%; */
+  margin-top: 45px;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
 }
@@ -101,6 +106,8 @@ button {
 .login-description {
   color: var(--white);
   margin-bottom: 2rem;
+  width: 100%;
+  max-width: 425px;
 }
 
 .login-label {
@@ -118,6 +125,12 @@ button {
   margin-bottom: 1rem;
 }
 
+.login-btn:hover {
+  border: 1px solid var(--white);
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
 .socials {
   display: flex;
   align-items: center;
@@ -130,6 +143,13 @@ button {
   display: inline-block;
   padding: 6px;
   border-radius: 100%;
+  cursor: pointer;
+  border: 1px solid var(--primary-color);
+}
+
+.socials span:hover {
+  background-color: var(--primary-color);
+  border: 1px solid var(--white);
 }
 
 .socials span i {
@@ -138,8 +158,29 @@ button {
   color: var(--primary-color);
 }
 
+.socials span:hover i {
+  color: var(--white);
+}
+
 .test-btn {
   background-color: transparent;
   color: var(--white);
   margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 391px) {
+  .login-content {
+    margin-top: 100px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .login::before {
+    border-bottom-left-radius: 70% 70%;
+    height: 90%;
+  }
+
+  .login::after {
+    transform: translate(-70%, 70%);
+  }
 }
