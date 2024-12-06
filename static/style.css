@@ -121,6 +121,10 @@ button {
   margin-bottom: 3rem;
 }
 
+.login-input:disabled {
+  background-color: var(--white);
+}
+
 .login-btn {
   margin-bottom: 1rem;
 }

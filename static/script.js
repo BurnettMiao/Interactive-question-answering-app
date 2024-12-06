@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let userName = userInput.value.trim();
 
     if (userName === '') {
+      userInput.disabled = true;
       warnUser(userInput);
       return;
     }
@@ -24,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setTimeout(() => {
       userInput.value = '';
+      userInput.disabled = false;
       userInput.style.color = '#6fcf97';
     }, 2000);
   }

@@ -53,7 +53,6 @@ def welcome(data):
     print(f'轉跳到 game 頁面 User connected with ID: {request.sid}')
 
 
-
 @socketio.on("testMsg")
 def forTest(data):
     print('----------')
