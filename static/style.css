@@ -143,10 +143,6 @@ button {
   content: '名稱不可以為空白...';
 }
 
-.login-input:disabled {
-  background-color: var(--white);
-}
-
 .login-btn {
   margin-bottom: 1rem;
 }
