@@ -5,6 +5,8 @@
   --primary-color: #6fcf97;
   --white: #fff;
   --bg-gray: #efefec;
+  --text-color-black: #000;
+  --text-color-deep-blue: #456074;
 }
 
 * {
@@ -188,6 +190,40 @@ button {
   background-color: transparent;
   color: var(--white);
   margin-bottom: 1rem;
+}
+
+/* game page */
+.game {
+  padding: 2rem;
+  background-color: var(--bg-gray);
+}
+
+.card {
+  padding: 1rem;
+  background: var(--white);
+  border-radius: 25px;
+}
+
+.card h1 {
+  color: #000;
+}
+
+.card .btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card .btns button {
+  border: 1px solid var(--primary-color);
+}
+
+.card .btns button:hover,
+.card .btns button.active {
+  background-color: var(--primary-color);
+  color: var(--white);
 }
 
 @media screen and (min-width: 391px) {
