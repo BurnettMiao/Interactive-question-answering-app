@@ -4,12 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loginBtn.addEventListener('click', () => {
     console.log('Login Button clicked!!!');
-    let userInput = document.querySelector('.login-input');
-    let userName = userInput.value.trim();
+    const userInput = document.querySelector('.login-input');
+    const userName = userInput.value.trim();
 
     if (userName === '') {
-      userInput.disabled = true;
-      warnUser(userInput);
+      warnUser();
       return;
     }
 
@@ -19,14 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
     userInput.value = '';
   });
 
-  function warnUser(userInput) {
-    userInput.value = '名稱不可以為空白...';
-    userInput.style.color = 'red';
+  function warnUser() {
+    const inputContainer = document.querySelector('.input-container');
+    inputContainer.classList.add('active');
 
     setTimeout(() => {
-      userInput.value = '';
-      userInput.disabled = false;
-      userInput.style.color = '#6fcf97';
+      inputContainer.classList.remove('active');
     }, 2000);
   }
 
