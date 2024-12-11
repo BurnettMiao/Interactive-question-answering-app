@@ -9,20 +9,47 @@
   <body>
     <div class="container game">
       <div class="card">
-        <h1>This is another page</h1>
+        <h1 class="game-title">This is another page</h1>
 
-        <p>
+        <p class="question-description">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore cum
           vel, error, magnam ea sint delectus, quo ad soluta quis maxime
           officia! Impedit, nobis ipsam.
         </p>
 
-        <div class="btns">
-          <button>我是解答一</button>
-          <button class="active">解答二</button>
-          <button>有可能是解答三</button>
-          <button>也是解答四</button>
+        <div class="img-container">
+          <img
+            src="https://images.pexels.com/photos/18893258/pexels-photo-18893258.jpeg"
+            alt=""
+          />
         </div>
+
+        <form id="select-answer">
+          <div class="answer-container">
+            <label
+              ><input type="radio" name="answer" value="A" /><span
+                >我是答案 A</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="answer" value="B" /><span
+                >有可能是答案 B</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="answer" value="C" /><span
+                >更有可能是答案 C</span
+              ></label
+            >
+            <label
+              ><input type="radio" name="answer" value="D" /><span
+                >高機率為答案 D</span
+              ></label
+            >
+          </div>
+
+          <button class="send-answer">送出答案</button>
+        </form>
       </div>
     </div>
 

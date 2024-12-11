@@ -49,6 +49,11 @@ button {
   cursor: pointer;
 }
 
+img {
+  width: 100%;
+  display: flex;
+}
+
 .container {
   max-width: var(--max-width);
   margin: auto;
@@ -204,24 +209,53 @@ button {
   border-radius: 25px;
 }
 
-.card h1 {
+.card .game-title {
   color: #000;
+  margin-bottom: 1rem;
 }
 
-.card .btns {
+.card .question-description {
+  margin-bottom: 1rem;
+}
+
+.card .img-container {
+  margin-bottom: 1rem;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.card #select-answer label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 48%;
+}
+
+.card #select-answer label input {
+  width: auto;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.card #select-answer {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
 }
 
-.card .btns button {
-  border: 1px solid var(--primary-color);
+.card #select-answer .answer-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.card .btns button:hover,
-.card .btns button.active {
+.card #select-answer .send-answer {
   background-color: var(--primary-color);
   color: var(--white);
 }

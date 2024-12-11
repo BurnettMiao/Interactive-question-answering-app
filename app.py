@@ -26,6 +26,10 @@ person_scores = [
 ]
 
 users = [
+    {"id": 'dkeiei9akc', "name": "Test One", "score": 42728480},
+    {"id": 'dkdkdkdkdk', "name": "Test Two", "score": 38473977},
+    {"id": 'eiakekdo3k', "name": "Test Three", "score": 84872709},
+    {"id": 'acii394rey', "name": "Test Four", "score": 12949432},
 ]
 
 @app.route('/')
