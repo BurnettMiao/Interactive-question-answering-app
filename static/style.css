@@ -224,19 +224,6 @@ img {
   overflow: hidden;
 }
 
-.card #select-answer label {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 48%;
-}
-
-.card #select-answer label input {
-  width: auto;
-  margin-top: 4px;
-  display: inline-block;
-}
-
 .card #select-answer {
   width: 100%;
   display: flex;
@@ -255,7 +242,20 @@ img {
   gap: 8px;
 }
 
-.card #select-answer .send-answer {
+.card #select-answer .answer-container label {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 48%;
+}
+
+.card #select-answer .answer-container label input {
+  width: auto;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.card #select-answer .send-btn {
   background-color: var(--primary-color);
   color: var(--white);
 }
